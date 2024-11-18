@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(e){"use strict";return e.extend("createcandidate.controller.candidate-creation",{onInit:function(){}})});
+//# sourceMappingURL=candidate-creation.controller.js.map

@@ -1,0 +1,20 @@
+//@ui5-bundle createcandidate/Component-preload.js
+sap.ui.require.preload({
+	"createcandidate/Component.js":function(){
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","createcandidate/model/models"],function(e,t,i){"use strict";return e.extend("createcandidate.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);this.getRouter().initialize();this.setModel(i.createDeviceModel(),"device")}})});
+},
+	"createcandidate/controller/App.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(e){"use strict";return e.extend("createcandidate.controller.App",{onInit:function(){}})});
+},
+	"createcandidate/controller/candidate-creation.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(e){"use strict";return e.extend("createcandidate.controller.candidate-creation",{onInit:function(){}})});
+},
+	"createcandidate/i18n/i18n.properties":'# This is the resource bundle for createcandidate\n\n#Texts for manifest.json\n\n#XTIT: Application name\nappTitle=Talent application\n\n#YDES: Application description\nappDescription=An SAP Fiori application.\n#XTIT: Main view title\ntitle=Talent application\n\n#XFLD,51\nflpTitle=Talent Management\n',
+	"createcandidate/manifest.json":'{"_version":"1.60.0","sap.app":{"id":"createcandidate","type":"application","i18n":"i18n/i18n.properties","applicationVersion":{"version":"0.0.1"},"title":"{{appTitle}}","description":"{{appDescription}}","resources":"resources.json","sourceTemplate":{"id":"@sap/generator-fiori:basic","version":"1.15.3","toolsId":"9a7c043e-7ef5-46e8-b157-2c0cc64a0142"},"dataSources":{"mainService":{"uri":"odata/v4/talent/","type":"OData","settings":{"annotations":[],"odataVersion":"4.0"}}},"crossNavigation":{"inbounds":{"candidate-display":{"semanticObject":"candidate","action":"display","title":"{{flpTitle}}","signature":{"parameters":{},"additionalParameters":"allowed"}},"create-candidate-display":{"semanticObject":"create-candidate","action":"display","signature":{"parameters":{},"additionalParameters":"allowed"}}}}},"sap.ui":{"technology":"UI5","icons":{"icon":"","favIcon":"","phone":"","phone@2":"","tablet":"","tablet@2":""},"deviceTypes":{"desktop":true,"tablet":true,"phone":true}},"sap.ui5":{"flexEnabled":true,"dependencies":{"minUI5Version":"1.120.21","libs":{"sap.m":{},"sap.ui.core":{}}},"contentDensities":{"compact":true,"cozy":true},"models":{"i18n":{"type":"sap.ui.model.resource.ResourceModel","settings":{"bundleName":"createcandidate.i18n.i18n"}},"":{"dataSource":"mainService","preload":true,"settings":{"operationMode":"Server","autoExpandSelect":true,"earlyRequests":true}}},"resources":{"css":[{"uri":"css/style.css"}]},"routing":{"config":{"routerClass":"sap.m.routing.Router","viewType":"XML","async":true,"viewPath":"createcandidate.view","controlAggregation":"pages","controlId":"app","clearControlAggregation":false},"routes":[{"name":"Routecandidate-creation","pattern":":?query:","target":["Targetcandidate-creation"]}],"targets":{"Targetcandidate-creation":{"viewType":"XML","transition":"slide","clearControlAggregation":false,"viewId":"candidate-creation","viewName":"candidate-creation"}}},"rootView":{"viewName":"createcandidate.view.App","type":"XML","async":true,"id":"App"}},"sap.cloud":{"public":true,"service":"talent"}}',
+	"createcandidate/model/models.js":function(){
+sap.ui.define(["sap/ui/model/json/JSONModel","sap/ui/Device"],function(e,n){"use strict";return{createDeviceModel:function(){var i=new e(n);i.setDefaultBindingMode("OneWay");return i}}});
+},
+	"createcandidate/view/App.view.xml":'<mvc:View controllerName="createcandidate.controller.App"\n    xmlns:html="http://www.w3.org/1999/xhtml"\n    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"\n    xmlns="sap.m"><App id="app"></App></mvc:View>\n',
+	"createcandidate/view/candidate-creation.view.xml":'<mvc:View controllerName="createcandidate.controller.candidate-creation"\n    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"\n    xmlns="sap.m"><Page id="page" title="{i18n>title}"><content /></Page></mvc:View>\n'
+});
+//# sourceMappingURL=Component-preload.js.map
