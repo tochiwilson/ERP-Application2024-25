@@ -22,13 +22,24 @@
     "watch-create-candidate": "cds watch --open create-candidate/webapp/index.html?sap-ui-xx-viewCache=false",
     "undeploy": "cf undeploy talent-management --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "approuter": "cds bind --exec -- npm start --prefix approuter"
   },
   "cds": {
     "requires": {
       "destinations": true,
       "html5-repo": true,
       "workzone": true
+    }
+  },
+  "requires": {
+    "auth": {
+      "kind": "xsuaa"
+    },
+    "[hybrid]": {
+      "auth": {
+        "kind": "jwt-auth"
+      }
     }
   }
 }
