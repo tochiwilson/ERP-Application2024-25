@@ -1,1 +1,50 @@
-/* Enter your custom styles here */
+/* Algemene styling */
+Page {
+    background-color: #f9f9f9;
+}
+
+/* Styling voor de VBox container */
+VBox {
+    padding: 20px;
+    gap: 15px; /* Voegt ruimte tussen elementen toe */
+}
+
+/* Styling voor labels */
+Label {
+    font-weight: bold;
+    margin-bottom: 5px; /* Zorgt voor een beetje ruimte onder het label */
+}
+
+/* Styling voor inputs en selects */
+Input, Select, DatePicker {
+    width: 100%; /* Zorgt ervoor dat de invoervelden even breed zijn */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Zorgt ervoor dat padding binnen de breedte valt */
+}
+
+/* Styling voor de button */
+Button {
+    margin-top: 20px;
+    width: 100%; /* Volledige breedte */
+    background-color: #007aff; /* Primaire kleur */
+    color: white; /* Tekstkleur */
+    padding: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Button hover-effect */
+Button:hover {
+    background-color: #005bb5;
+}
+
+/* Styling voor foutmeldingen of notificaties (optioneel) */
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+}

@@ -1,7 +1,52 @@
 <mvc:View controllerName="createcandidate.controller.candidate-creation"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    
     <Page id="page" title="{i18n>title}">
-        <content />
+        <VBox>
+            <Label text="Voornaam" /> 
+            <Input id="firstName" placeholder="Vul de voornaam in" />
+
+            <Label text="Familienaam" /> 
+            <Input id="lastName" placeholder="Vul de familienaam in" />
+
+            <Label text="Geboortedatum" /> 
+            <DatePicker id="birthDate" />
+
+            <Label text="Woonplaats" /> 
+            <Input id="city" placeholder="Vul de woonplaats in" />
+
+            <Label text="Emailadres" /> 
+            <Input id="email" type="Email" placeholder="Vul het emailadres in" />
+
+            <Label text="Afdeling" /> 
+            <Select id="department"> 
+                <items>
+                    <core:Item key="HR" text="HR" />
+                    <core:Item key="FIN" text="Finance" />
+                    <core:Item key="SAL" text="Sales" />
+                    <core:Item key="MKT" text="Marketing" />
+                    <core:Item key="DEV" text="Development" />
+                    <core:Item key="IT" text="IT" />
+                </items>
+            </Select>
+
+            <Label text="Contract Type" /> 
+            <Select id="contractType"> 
+                <items>
+                    <core:Item key="FullTime" text="Full Time" />
+                    <core:Item key="FourFifths" text="4/5" />
+                    <core:Item key="ThreeFifths" text="3/5" />
+                    <core:Item key="PartTime" text="Halftijds" />
+                    <core:Item key="Internship" text="Stage" />
+                </items>
+            </Select>
+
+            <Label text="Startdatum" />
+            <DatePicker id="startDate" />
+
+            <Button text="Kandidaat Aanmaken" press="onCreateCandidate" />
+        </VBox>
     </Page>
 </mvc:View>
