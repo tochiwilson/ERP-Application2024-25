@@ -85,7 +85,7 @@ resources:
   type: com.sap.xs.hdi-container
   parameters:
     config:
-      schema: PROSPECT
+      schema: CANDIDATE
       xsappname: talent-management
     service: hana
     service-plan: hdi-shared

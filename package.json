@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap/approuter": "^17.1.0",
     "@sap/cds": "^8.4.2",
     "@sap/xssec": "^4.2.7",
     "express": "^4"

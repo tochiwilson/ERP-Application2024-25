@@ -15,6 +15,12 @@
       "skipFiles": [
         "<node_internals>/**"
       ]
+    },
+    {
+      "command": "cds watch --profile hybrid",
+      "name": "Run hybrid profile",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }
