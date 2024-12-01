@@ -1,50 +1,55 @@
-/* Algemene styling */
-Page {
+/* Algemene styling voor de pagina */
+#page {
     background-color: #f9f9f9;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
-/* Styling voor de VBox container */
+/* Styling voor de VBox en de daarin liggende elementen */
 VBox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Zorgt voor consistentie tussen elementen */
+    max-width: 400px; /* Beperkt de breedte van het formulier */
+    margin: 0 auto; /* Centreert de inhoud op de pagina */
+    background-color: #ffffff;
     padding: 20px;
-    gap: 15px; /* Voegt ruimte tussen elementen toe */
+    border-radius: 8px; /* Rondt de hoeken af */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtiele schaduw */
+}
+
+/* Styling voor inputvelden */
+Input, Select, DatePicker {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
 }
 
 /* Styling voor labels */
 Label {
     font-weight: bold;
-    margin-bottom: 5px; /* Zorgt voor een beetje ruimte onder het label */
-}
-
-/* Styling voor inputs en selects */
-Input, Select, DatePicker {
-    width: 100%; /* Zorgt ervoor dat de invoervelden even breed zijn */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Zorgt ervoor dat padding binnen de breedte valt */
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
 }
 
 /* Styling voor de button */
 Button {
     margin-top: 20px;
-    width: 100%; /* Volledige breedte */
-    background-color: #007aff; /* Primaire kleur */
-    color: white; /* Tekstkleur */
-    padding: 10px 0;
+    background-color: #007aff; /* Blauwe kleur */
+    color: white;
     border: none;
     border-radius: 4px;
+    padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
-/* Button hover-effect */
 Button:hover {
-    background-color: #005bb5;
-}
-
-/* Styling voor foutmeldingen of notificaties (optioneel) */
-.error {
-    color: red;
-    font-size: 14px;
-    margin-top: -10px;
+    background-color: #005bb5; /* Donkerder blauw bij hover */
 }

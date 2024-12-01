@@ -2,49 +2,55 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    
+
     <Page id="page" title="{i18n>title}">
         <VBox>
-            <Label text="Voornaam" /> 
-            <Input id="firstName" placeholder="Vul de voornaam in" />
+            <Label text="Voornaam" />
+            <Input value="{candidateModel>/firstName}" placeholder="Vul de voornaam in" required="true" />
 
-            <Label text="Familienaam" /> 
-            <Input id="lastName" placeholder="Vul de familienaam in" />
+            <Label text="Familienaam" />
+            <Input value="{candidateModel>/lastName}" placeholder="Vul de familienaam in" required="true" />
 
-            <Label text="Geboortedatum" /> 
-            <DatePicker id="birthDate" />
+            <Label text="Geboortedatum" />
+            <DatePicker value="{candidateModel>/dateOfBirth}" 
+                        displayFormat="dd.MM.yyyy" 
+                        valueFormat="yyyy-MM-dd" 
+                        placeholder="Kies een datum" />
 
-            <Label text="Woonplaats" /> 
-            <Input id="city" placeholder="Vul de woonplaats in" />
+            <Label text="Woonplaats" />
+            <Input value="{candidateModel>/residence}" placeholder="Vul de woonplaats in" />
 
-            <Label text="Emailadres" /> 
-            <Input id="email" type="Email" placeholder="Vul het emailadres in" />
+            <Label text="Emailadres" />
+            <Input value="{candidateModel>/email}" type="Email" placeholder="Vul het emailadres in" />
 
             <Label text="Afdeling" /> 
-            <Select id="department"> 
-                <items>
-                    <core:Item key="HR" text="HR" />
-                    <core:Item key="FIN" text="Finance" />
-                    <core:Item key="SAL" text="Sales" />
-                    <core:Item key="MKT" text="Marketing" />
-                    <core:Item key="DEV" text="Development" />
-                    <core:Item key="IT" text="IT" />
-                </items>
+            <Select selectedKey="{candidateModel>/department}" items="{
+                path: '/Departments'
+            }">
+                <core:Item key="{code}" text="{description}" />
             </Select>
 
             <Label text="Contract Type" /> 
-            <Select id="contractType"> 
-                <items>
-                    <core:Item key="FullTime" text="Full Time" />
-                    <core:Item key="FourFifths" text="4/5" />
-                    <core:Item key="ThreeFifths" text="3/5" />
-                    <core:Item key="PartTime" text="Halftijds" />
-                    <core:Item key="Internship" text="Stage" />
-                </items>
+            <Select selectedKey="{candidateModel>/contractType}" items="{ 
+                path:'/ContractTypes'
+                }"> 
+                <core:Item key="{type}" text="{type}" />
             </Select>
 
+            <Label text="Manager (Reports To)" />
+            <Input value="{candidateModel>/reportsTo}" placeholder="Vul de naam van de manager in" />
+
+            <Label text="Voorkeurstaal" />
+            <Input value="{candidateModel>/preferredLanguage}" placeholder="Bijvoorbeeld: NL, EN, FR" />
+
             <Label text="Startdatum" />
-            <DatePicker id="startDate" />
+            <DatePicker value="{candidateModel>/startDate}" 
+                        displayFormat="dd.MM.yyyy" 
+                        valueFormat="yyyy-MM-dd" 
+                        placeholder="Kies een startdatum" />
+
+            <Label text="Senioriteit" />
+            <Input value="{candidateModel>/seniority}" placeholder="Vul de senioriteit in" type="Number" />
 
             <Button text="Kandidaat Aanmaken" press="onCreateCandidate" />
         </VBox>
