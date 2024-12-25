@@ -9,9 +9,9 @@
         "csrfProtection": false
       },
       {
-        "source": "^/sap_ias/(.*)$",
+        "source": "^/spa_process_destination/(.*)$",
         "target": "/$1",
-        "destination": "SAP_IAS_Manage_Users",
+        "destination": "spa_process_destination",
         "authenticationType": "xsuaa",
         "csrfProtection": false
       },

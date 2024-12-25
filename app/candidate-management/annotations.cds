@@ -140,3 +140,18 @@ annotate service.Candidates with {
         ],
     }
 };
+annotate service.Candidates with {
+    firstName @(Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Candidates',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : firstName,
+                    ValueListProperty : 'firstName',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true
+)};
+
