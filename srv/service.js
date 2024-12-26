@@ -12,27 +12,32 @@ module.exports = cds.service.impl(async (srv) => {
     
     srv.after('CREATE', 'Candidates', async (req) => {
         
-        let oData = {
-            "definitionId": "us10.14954ddftrial.candidateapprovalworkflow.candidateApproval",
-            "context": {
-                "candidatedetails": {
-                    "firstName": req.firstName,
-                    "lastName": req.lastName,
-                    "dateOfBirth": req.dateOfBirth,
-                    "residence": req.residence,
-                    "email": req.email,
-                    "department": req.department,
-                    "contractType": req.contractType,
-                    "reportsTo": req.reportsTo,
-                    "preferredLanguage": req.preferredLanguage,
-                    "startDate": req.startDate,
-                    "seniority": req.seniority,
-                    "status": "Pending"
+        try {
+            let oData = {
+                "definitionId": "us10.73653315trial.candidatemanagementproject.candidateApprovalProcess",
+                "context": {
+                    "candidatedetails": {
+                        "firstName": req.firstName,
+                        "lastName": req.lastName,
+                        "dateOfBirth": req.dateOfBirth,
+                        "residence": req.residence,
+                        "email": req.email,
+                        "department": req.department,
+                        "contractType": req.contractType,
+                        "reportsTo": req.reportsTo,
+                        "preferredLanguage": req.preferredLanguage,
+                        "startDate": req.startDate,
+                        "seniority": req.seniority,
+                        "status": "Pending"
+                    }
                 }
             }
-        }
 
-        let oResponse = await startBusinessProcess(oData);
+            let oResponse = await startBusinessProcess(oData);
+            console.log(`Business process started with ID: ${oResponse.id}`);
+        } catch (oError) {
+            console.log(`Error starting business process: ${oError.message}`);
+        }
     });
 
     srv.on("TriggerBusinessProcess", async (oReq) => {
