@@ -7,11 +7,32 @@ module.exports = cds.service.impl(async (srv) => {
     // checks doen voor de business process
     srv.before('CREATE', 'Candidates', async (req) => {
         
-        // de check
+        // de checks voor de business process
+        if (req.department === 'HR' || req.department === 'FIN' || req.department === 'IT') {
+            const count = await cds.run(SELECT.from(Candidates).where({ department: req.department }));
+            if (count.length >= 5) {
+                req.reject(400, `Maximum aantal kandidaten voor afdeling ${req.department} bereikt`);
+            }
+        }
+
+        if (req.department === 'SAL' || req.department === 'MKT') {
+            const count = await cds.run(SELECT.from(Candidates).where({ department: req.department }));
+            if (count.length >= 3) {
+                req.reject(400, `Maximum aantal kandidaten voor afdeling ${req.department} bereikt`);
+            }
+        }
+
+        if (req.department === 'DEV') {
+            const count = await cds.run(SELECT.from(Candidates).where({ department: req.department }));
+            if (count.length >= 10) {
+                req.reject(400, `Maximum aantal kandidaten voor afdeling ${req.department} bereikt`);
+            }
+        }
     });
     
     srv.after('CREATE', 'Candidates', async (req) => {
         
+        // creëer candidate en start business process
         try {
             let oData = {
                 "definitionId": "us10.73653315trial.candidatemanagementproject.candidateApprovalProcess",
@@ -34,7 +55,6 @@ module.exports = cds.service.impl(async (srv) => {
             }
 
             let oResponse = await startBusinessProcess(oData);
-            console.log(`Business process started with ID: ${oResponse.id}`);
         } catch (oError) {
             console.log(`Error starting business process: ${oError.message}`);
         }

@@ -19,20 +19,12 @@ context Talent {
         status: String(10); // "Approved", "Rejected"
     }
 
-    entity Departments:  cuid, managed {
+    entity Departments:  managed {
         key code: String(3);
         description: String(50);
     }
 
-    entity ContractTypes:  cuid, managed {
+    entity ContractTypes:  managed {
         key type: String(20);
-    }
-
-    entity WorkflowRounds:  cuid, managed {
-        candidate: Association to Candidates;
-        department: Association to Departments;
-        round: Integer; // 1 or 2
-        maxCandidates: Integer;
-        currentCandidates: Integer;
     }
 }
