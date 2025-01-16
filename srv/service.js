@@ -2,7 +2,7 @@ const cds = require('@sap/cds');
 const httpclient = require("@sap-cloud-sdk/http-client");
 
 module.exports = cds.service.impl(async (srv) => {
-    const { Candidates, Departments, ContractTypes, WorkflowRounds } = cds.entities('Talent');
+    const { Candidates, Departments, ContractTypes } = cds.entities('Talent');
 
     // checks doen voor de business process
     srv.before('CREATE', 'Candidates', async (req) => {
@@ -28,6 +28,8 @@ module.exports = cds.service.impl(async (srv) => {
                 req.reject(400, `Maximum aantal kandidaten voor afdeling ${req.department} bereikt`);
             }
         }
+
+        console.log("Genoeg ruimte")
     });
     
     srv.after('CREATE', 'Candidates', async (req) => {

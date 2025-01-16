@@ -5,7 +5,7 @@
     {
       "source": "^/odata/(.*)$",
       "target": "/odata/$1",
-      "destination": "Destination",
+      "destination": "talent-management-srv-api",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },

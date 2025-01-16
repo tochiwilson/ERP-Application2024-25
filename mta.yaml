@@ -60,16 +60,30 @@ modules:
   type: com.sap.application.content
   path: .
   requires:
-  - name: talent-management-repo-host
+  - name: talent-management_html_repo_host
     parameters:
       content-target: true
   build-parameters:
-    build-result: resources
+    build-result: resources/
     requires:
-    - artifacts:
-      - candidatemanagement.zip
-      name: candidatemanagement
+    - name: candidatemanagement
+      artifacts:
+        - candidate-management.zip
       target-path: resources/
+    - name: createcandidate
+      artifacts:
+        - createcandidate.zip
+      target-path: resources/
+- name: candidatemanagement
+  type: html5
+  path: app/candidate-management
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+      - npm ci
+      - npm run build
+    supported-platforms: []
 - name: createcandidate
   type: html5
   path: app/create-candidate
@@ -129,12 +143,6 @@ resources:
     service: xsuaa
     service-name: talent-management-xsuaa-service
     service-plan: application
-- name: talent-management-repo-host
-  type: org.cloudfoundry.managed-service
-  parameters:
-    service: html5-apps-repo
-    service-name: talent-management-html5-srv
-    service-plan: app-host
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
