@@ -28,8 +28,6 @@ module.exports = cds.service.impl(async (srv) => {
                 req.reject(400, `Maximum aantal kandidaten voor afdeling ${req.department} bereikt`);
             }
         }
-
-        console.log("Genoeg ruimte")
     });
     
     srv.after('CREATE', 'Candidates', async (req) => {
@@ -95,7 +93,7 @@ module.exports = cds.service.impl(async (srv) => {
 async function startBusinessProcess(payload) {
     try {
         let oResponse = await httpclient.executeHttpRequest({
-            destinationName: 'spa_process_destination'
+            destinationName: 'bpmworkflowruntime'
         }, {
             method: 'POST',
             url: '/workflow/rest/v1/workflow-instances',

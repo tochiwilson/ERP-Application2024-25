@@ -9,9 +9,9 @@
         "csrfProtection": false
       },
       {
-        "source": "^/spa_process_destination/(.*)$",
+        "source": "^/bpmworkflowruntime/(.*)$",
         "target": "/$1",
-        "destination": "spa_process_destination",
+        "destination": "bpmworkflowruntime",
         "authenticationType": "xsuaa",
         "csrfProtection": false
       },
